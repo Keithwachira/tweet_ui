@@ -148,7 +148,14 @@ class EmbeddedTweetView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      openUrl(_tweetVM.tweetLink);
+                      print("ahahahha");
+                      print(onTweetClick);
+                      if(onTweetClick!=null){
+                        onTweetClick(_tweetVM);
+                      }else{
+                        openUrl(_tweetVM.tweetLink);
+                      }
+
                     },
                     child: TweetText(
                       _tweetVM,
