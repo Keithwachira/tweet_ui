@@ -33,6 +33,7 @@ class EmbeddedTweetView extends StatelessWidget {
 
   /// Function used when you want a custom image tapped callback
   final OnTapImage onTapImage;
+  final OnTweetClick onTweetClick;
 
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
@@ -49,7 +50,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.videoPlayerInitialVolume,
     this.onTapImage,
     this.createdDateDisplayFormat,
-    this.videoHighQuality,
+    this.videoHighQuality, this.onTweetClick,
   }); //  TweetView(this.tweetVM);
 
   EmbeddedTweetView.fromTweet(
@@ -60,7 +61,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.videoPlayerInitialVolume = 0.0,
     this.onTapImage,
     this.createdDateDisplayFormat,
-    this.videoHighQuality = true,
+    this.videoHighQuality = true, this.onTweetClick,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
@@ -75,7 +76,11 @@ class EmbeddedTweetView extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              openUrl(_tweetVM.tweetLink);
+              if(onTweetClick!=null){
+                onTweetClick(_tweetVM);
+              }else{
+                openUrl(_tweetVM.tweetLink);
+              }
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
