@@ -77,8 +77,7 @@ class EmbeddedTweetView extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              print("ahahahha");
-              print(onTweetClick);
+
               if(onTweetClick!=null){
                 onTweetClick(_tweetVM);
               }else{
@@ -148,8 +147,6 @@ class EmbeddedTweetView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      print("ahahahha");
-                      print(onTweetClick);
                       if(onTweetClick!=null){
                         onTweetClick(_tweetVM);
                       }else{
