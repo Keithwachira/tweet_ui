@@ -49,6 +49,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.useVideoPlayer,
     this.videoPlayerInitialVolume,
     this.onTapImage,
+
     this.createdDateDisplayFormat,
     this.videoHighQuality, this.onTweetClick,
   }); //  TweetView(this.tweetVM);
